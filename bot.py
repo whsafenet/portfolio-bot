@@ -12,7 +12,7 @@ def get_price(ticker):
     return None
 
 def get_news(ticker):
-    url = f"https://newsapi.org/v2/everything?q={ticker}&sortBy=publishedAt&apiKey=123abc456def789ghi"
+    url = f"https://newsapi.org/v2/everything?q={ticker}&sortBy=publishedAt&apiKey=1dec4693b4d04e2abae20cae7fd870e5"
     try:
         r = requests.get(url)
         articles = r.json().get("articles", [])
