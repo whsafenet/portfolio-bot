@@ -8,7 +8,7 @@ def get_price(ticker):
     stock = yf.Ticker(ticker)
     data = stock.history(period="1d")
     if not data.empty:
-        return data["Close"][0]
+        return data["Close"].iloc[0]
     return None
 
 def get_news(ticker):
