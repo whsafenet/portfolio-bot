@@ -2,8 +2,8 @@ name: Run Portfolio Bot
 
 on:
   schedule:
-    - cron: "0 14 * * *"   # Runs every day at 6 AM Pacific (13:00 UTC)
-  workflow_dispatch:       # Allows manual runs
+    - cron: "0 13 * * *"   # 6 AM Pacific (13:00 UTC)
+  workflow_dispatch:        # allows manual runs
 
 jobs:
   run-bot:
@@ -20,8 +20,14 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install yfinance requests
+        pip install yfinance
+        pip install requests
 
     - name: Run bot
+      env:
+        AOL_EMAIL: ${{ secrets.AOL_EMAIL }}
+        AOL_APP_PASSWORD: ${{ secrets.AOL_APP_PASSWORD }}
+        SMS_ADDRESS: ${{ secrets.SMS_ADDRESS }}
       run: python bot.py
+
 
